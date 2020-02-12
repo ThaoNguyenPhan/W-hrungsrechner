@@ -1,0 +1,108 @@
+#wrapper {
+  box-sizing: border-box;
+}
+
+.header {
+  color: #ffffff;
+  padding: 15px;
+}
+body {
+  background-color: black;
+}
+
+.Box {
+  margin: 0 auto;
+  width: 90%;
+
+
+  text-align: center;
+  padding: 1px;
+
+}
+.Box input {
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  height: 45px;
+  box-sizing: border-box;
+}
+.Box span {
+  position: relative;
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  width: 100%;
+}
+
+.Box span select{
+  background-color: #CC2031;
+  color: #fff;
+  font-size: inherit;
+  padding: 10px;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  border-radius: 0px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: none; /* hide default arrow in chrome OSX */
+}
+
+.Converter1, .Converter2{
+  float: left;
+  box-sizing: border-box;
+  padding-right: 0px;
+  width: 45%;
+}
+
+
+.Gleichheitszeichen {
+  float: left;
+  box-sizing: border-box;
+  width: 10%;
+  color: #FFF;
+  font-size: 2.4em;
+  line-height: 0;
+  text-align: center;
+}
+
+
+.update{
+color: white;
+
+}
+
+.button {
+  background:  #CC2031;
+  box-sizing: border-box;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 10px 33px;
+  cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "Description" content = "Einfache Rechnungsumwandeler" >
+  <link rel="stylesheet" type="text/css" href="lösung.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Converter PWA">
+  <script type="text/javascript" src=lösung.js> </script>
+</head>
+
+<body>
+
+<div class="Box" id="Box">
+  <div class="header">
+   <h1>Unit Converter</h1>
+  </div>
+
+
+  <form name="property_form" id="property_form" >
+    <span>
+      <select class="select-property" name="MainMenu" aria-labelledby="property_form" size=1
+      onChange="ChangeUnit(this, document.form1.UnitMenu);
+      ChangeUnit(this, document.form2.UnitMenu)">
+      </select>
+    </span>
+  </form>
+
+    <div class="Converter1" id="Converter1">
+      <form name="form1" onSubmit="return false">
+          <input id="input1" type="number" class="number" name="unit_input" id="con1"maxlength="30" value="0"
+          onKeyUp="CalculateUnit(document.form1, document.form2)">
+        <span>
+          <select name="UnitMenu" aria-labelledby="Converter1" onChange="CalculateUnit(document.form2, document.form1)">
+          </select>
+        </span>
+      </form>
+    </div> <!-- /Converter1-->
+
+   <div class="Gleichheitszeichen">
+     <p>=</p>
+   </div> <!-- ´= -->
+
+
+    <div class="Converter2" id=Converter2>
+      <form name="form2" onSubmit="return false">
+            <input id="input2" aria-labelledby="input2"type="number" class="number" name="unit_input" maxlength="30" value="0"
+            onkeyup="CalculateUnit(document.form2, document.form1)">
+        <span>
+
+          <select name="UnitMenu" aria-labelledby="Converter2" onChange="CalculateUnit(document.form1, document.form2)">
+          </select>
+        </span>
+      </form>
+    </div> <!-- /Converter2 -->
+
+    <button class="button" id="updateButton">Update</button>
+      <p class="update" id="update"></p>
+</div><!-- /Box -->
+
+
+
+
+
+<script>
+
+
+
+//ServiceWorker
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+
+//______________________________________________________________________________
+  let newWorker;
+
+  document.getElementById('updateButton').addEventListener('click',function(){
+      newWorker.postMessage({action: 'skipWaiting'});
+     document.getElementById('update').innerHTML="";
+  });
+  if ('serviceWorker' in navigator) {
+      // Register the service worker
+      navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
+        reg.addEventListener('updatefound', function(){
+        serviceWorker=reg.installing;
+        document.getElementById("update").innerHTML="Update is available";
+      });
+    });
+  }
+
+
+
+</script>
+</body>
+</html>

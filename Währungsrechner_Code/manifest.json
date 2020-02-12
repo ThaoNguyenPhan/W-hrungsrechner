@@ -1,0 +1,12 @@
+{
+"name": "Converter",
+"short_name": "Converter",
+"theme color": "gray",
+"start_url": "/lösung.html",
+"display": "standalone",
+"description": "Einfache Anwendung für die Umrechnung von Einheiten",
+"dir": "rtl",
+"display": "standalone",
+"orientation": "portrait-primary",
+"background_color": "gray"
+}
